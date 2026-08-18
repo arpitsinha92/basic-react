@@ -1,0 +1,34 @@
+{
+  "name": "basic-react",
+  "version": "1.0.0",
+  "description": "my first basic react project",
+  "scripts": {
+    "test": "jest",
+    "start": "npx parcel index.html",
+    "build": "npx parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arpitsinha92/basic-react.git"
+  },
+  "keywords": [
+    "react",
+    "basic"
+  ],
+  "author": "Arpit Sinha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arpitsinha92/basic-react/issues"
+  },
+  "homepage": "https://github.com/arpitsinha92/basic-react#readme",
+  "devDependencies": {
+    "parcel": "^2.16.4"
+  },
+  "dependencies": {
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "browserList": [
+    "last 2 versions"
+  ]
+}
