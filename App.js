@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import restaurantData from "./data.json";
 
 const Header = () => {
   return (
@@ -23,17 +24,20 @@ const Header = () => {
   );
 };
 
-const RestaurantCard = () => {
+const RestaurantCard = (props) => {
+  const { resData } = props;
+  console.log(resData.info.name);
   return (
     <div className="res-card">
       <img
         className="res-logo"
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1600,h_640,c_fill/RX_THUMBNAIL/IMAGES/VENDOR/2026/7/22/a07653c5-2981-4ee0-86e1-b4b0cc410b38_229.jpg"
+        src={`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1600,h_640,c_fill/${resData.info.cloudinaryImageId}`}
+        alt={resData.info.name}
       />
-      <h3>Meghana Foods</h3>
-      <h4>Biryani, North Indian</h4>
-      <h4>4.4</h4>
-      <h4>38 mins</h4>
+      <h3>{resData.info.name}</h3>
+      <h4>{resData.info.cuisines.join(", ")}</h4>
+      <h4>⭐ {resData.info.avgRating}</h4>
+      <h4>🕐 {resData.info.sla.slaString}</h4>
     </div>
   );
 };
@@ -47,10 +51,9 @@ const Body = () => {
       </div>
 
       <div className="res-container">
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
+        {restaurantData.map((restaurant) => (
+          <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+        ))}
       </div>
     </div>
   );
